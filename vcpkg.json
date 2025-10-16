@@ -2,8 +2,9 @@
   "name": "main",
   "version-string": "latest",
   "dependencies": [
-    "fmt",
-    "boost-config",
-    "sqlite3"
+    "sdl3",
+    "sdl3-image",
+    "sdl3-ttf",
+    "imgui"
   ]
 }

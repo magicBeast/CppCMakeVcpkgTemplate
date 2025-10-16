@@ -1,1 +1,84 @@
+# --- Professional C++ Formatting: Google Style with Allman Braces ---
+#
+# This is a comprehensive, production-ready .clang-format file.
+# It is based on the Google C++ Style Guide and has been modified to enforce
+# a strict Allman brace style, along with other best practices for readability
+# seen in major open-source projects.
+#
+# HOW TO USE:
+# 1. Save this file as ".clang-format" in the root of your CLion project.
+# 2. In CLion Settings > Editor > Code Style, ensure the "ClangFormat" option is selected.
+# 3. CLion will now use this file for all formatting.
+#
+---
+# Specify the language and start with Google's style as the foundation.
+Language: Cpp
 BasedOnStyle: Google
+
+# --- BRACE STYLE OVERRIDE ---
+# These settings override Google's K&R style to enforce a strict Allman style.
+BreakBeforeBraces: Allman
+AllowShortBlocksOnASingleLine: Never
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+
+# --- POINTER AND REFERENCE ALIGNMENT ---
+# Aligns pointers and references to the right, with the type.
+# e.g. `int* p` instead of `int *p`. This is common in modern C++.
+PointerAlignment: Right
+ReferenceAlignment: Right
+
+# --- INDENTATION AND WHITESPACE ---
+# Standard indentation settings.
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+# Do not add extra space before parentheses in control statements.
+# e.g., `if (condition)` instead of `if (condition)`.
+SpaceBeforeParens: ControlStatements
+
+# --- COLUMN LIMIT AND WRAPPING ---
+# A modern column limit suitable for widescreen monitors.
+ColumnLimit: 120
+
+# Tries to break lines before logical operators (`&&`, `||`) for readability.
+BreakBeforeBinaryOperators: NonAssignment
+
+# --- INCLUDE DIRECTIVES ---
+# Automatically sorts #include blocks.
+SortIncludes: CaseSensitive
+
+# Groups include can into the categories with blank lines between them.
+# The regex is designed to separate the primary header (for the .cpp file),
+# C system headers, C++ system headers, and other library/project headers.
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex: '^<.*\.h>'
+    Priority: 2
+  - Regex: "^<.*>"
+    Priority: 3
+  - Regex: ".*"
+    Priority: 1
+
+# --- CLASS AND STRUCT FORMATTING ---
+# Controls how constructor initialiser lists are formatted.
+# 'AfterColon' puts each initialiser on its own line, indented.
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ConstructorInitializerIndentWidth: 4
+AllowAllConstructorInitializersOnNextLine: true
+
+# Ensures public/private/protected access specifiers are not indented.
+AccessModifierOffset: -4
+
+# --- OTHER STYLE PREFERENCES ---
+# Always add braces to `if` and `for` statements, even if they are on a single line.
+# Prevents common bugs like the "Apple goto fail" bug.
+InsertBraces: true
+
+# Controls spacing around C++11 braced list initialisers.
+# e.g. `std::vector<int> v{1, 2, 3};`
+Cpp11BracedListStyle: true
+

@@ -13,6 +13,8 @@ find_package(imgui CONFIG REQUIRED)
 set(
     CPP_TEMPLATE_SOURCES
     src/main.cpp
+    src/backends/imgui_impl_sdl3.cpp
+    src/backends/imgui_impl_sdlrenderer3.cpp
 )
 
 set(

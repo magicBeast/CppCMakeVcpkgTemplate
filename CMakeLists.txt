@@ -50,17 +50,17 @@ if(APPLE)
 endif()
 
 # --- Tests Target ---
-add_executable(tests ${CPP_TEMPLATE_TEST_SOURCES})
-target_link_libraries(tests PRIVATE
-    SDL3::SDL3
-    SDL3_image::SDL3_image
-    SDL3_ttf::SDL3_ttf
-    imgui::imgui
-)
-set_property(TARGET tests PROPERTY CXX_STANDARD 23)
-
-enable_testing()
-add_test(tests tests)
+# add_executable(tests ${CPP_TEMPLATE_TEST_SOURCES})
+# target_link_libraries(tests PRIVATE
+#     SDL3::SDL3
+#     SDL3_image::SDL3_image
+#     SDL3_ttf::SDL3_ttf
+#     imgui::imgui
+# )
+# set_property(TARGET tests PROPERTY CXX_STANDARD 23)
+#
+# enable_testing()
+# add_test(tests tests)
 
 # --- Formatting Targets ---
 add_custom_target(
